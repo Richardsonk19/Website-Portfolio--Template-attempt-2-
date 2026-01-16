@@ -1,0 +1,140 @@
+/* Specific styles for the project header only */
+.project-header .inner {
+    position: relative;
+    display: flex;
+    align-items: flex-start; /* Keeps the content aligned at the top */
+    justify-content: space-between;
+}
+
+.project-header .project-image-container {
+    flex-shrink: 0;
+    width: 40%;
+    max-width: 500px;
+    margin-left: 20px;
+}
+
+.project-header .project-image {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+/* Adjust the Project Info to reduce spacing below the image */
+.project-header .project-info {
+    flex: 1;
+    padding-right: 20px;
+    margin-bottom: 0; /* Remove any bottom margin */
+    margin-top: -20px; /* Move the text up, adjust as needed */
+}
+
+/* Remove unnecessary styles */
+.project-image-wrapper,
+.additional-project-image,
+.project-header .additional-image {
+    display: none;
+}
+
+/* Styling for the bottom image container */
+.bottom-image-container {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+/* Styling for the bottom image */
+.bottom-image {
+    width: 100%;
+    height: auto;
+    max-width: 1200px;
+    display: inline-block;
+}
+
+/* Styling for the bottom image caption */
+.bottom-image-caption {
+    margin-top: 10px; /* Adds some space between the image and the caption */
+    font-size: 0.9em; /* Slightly smaller font size for the caption */
+    color: #ffffff; /* Matches the font color with the rest of the page */
+    text-align: center;
+}
+
+/* Container for the image grid */
+.image-grid-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column; /* Stack the caption and grid vertically */
+    align-items: center; /* Center-aligns the caption and grid */
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+/* Custom class for grid caption with h3 styling */
+.grid-caption-h3 {
+    font-size: 1.5em; /* Match h3 font size */
+    font-weight: bold; /* Match h3 font weight */
+    color: #ffffff; /* Match h3 color */
+    text-align: center; /* Centers the text */
+    margin-bottom: 20px; /* Adds space below the caption */
+    width: 100%; /* Ensures it takes up full width of the parent container */
+    max-width: 1200px; /* Optional: Limits the maximum width */
+    margin: 0 auto 20px auto; /* Centers the container and adds bottom margin */
+    display: block; /* Ensures the element behaves like a block element */
+}
+
+/* Styling for the image grid */
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columns */
+    grid-gap: 20px; /* Adds space between the grid items */
+    width: 80%; /* Grid takes up 80% of the container width */
+    max-width: 1200px; /* Optional: Limits the maximum width of the grid */
+}
+
+/* Styling for the image grid items */
+.image-grid-item {
+    width: 100%;
+    padding-top: 75%; /* Maintain aspect ratio (4:3) */
+    position: relative;
+}
+
+/* Styling for the images */
+.grid-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Maintains aspect ratio */
+    display: block;
+    border-radius: 5px; /* Optional: Adds slightly rounded corners */
+}
+
+/* Design report link styling */
+.design-report-link {
+    font-size: 1.1em; /* Slightly larger font size */
+    font-weight: bold; /* Bold text */
+    color: #007bff; /* Blue color for the link */
+    text-decoration: none; /* Remove the underline */
+    margin-left: 5px; /* Add some space before the link text */
+}
+
+.design-report-link:hover {
+    text-decoration: underline; /* Underline on hover to indicate it's a link */
+}
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+    background: #000;
+    margin-top: 20px;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
