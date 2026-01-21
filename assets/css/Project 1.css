@@ -89,24 +89,31 @@
     max-width: 1200px; /* Optional: Limits the maximum width of the grid */
 }
 
-/* Styling for the image grid items */
 .image-grid-item {
-    width: 100%;
-    padding-top: 75%; /* Maintain aspect ratio (4:3) */
-    position: relative;
+  width: 100%;
+  position: relative;     /* fine either way */
+  border-radius: 8px;
+  overflow: hidden;       /* clips the contents to rounded corners */
+  background: transparent; /* subtle card behind image */
+  padding: 10px;          /* gives a little breathing room */
+  box-sizing: border-box;
 }
 
-/* Styling for the images */
+
+/* Images should be normal flow */
 .grid-image {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: contain; /* Maintains aspect ratio */
-    display: block;
-    border-radius: 5px; /* Optional: Adds slightly rounded corners */
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+  overflow: hidden;
+
+  /* NEW: cap tall portrait images on desktop/tablet */
+  max-height: 420px;
+  object-fit: contain;
 }
+
+
 
 /* Design report link styling */
 .design-report-link {
@@ -138,3 +145,229 @@
     height: 100%;
     border: 0;
 }
+
+/* Styling for the bottom image container */
+.bottom-image-container-2  {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+/* Styling for the bottom image */
+.bottom-image-2 {
+    width: 100%;
+    height: auto;
+    max-width: 1200px;
+    display: inline-block;
+}
+
+/* Styling for the bottom image caption */
+.bottom-image-caption {
+    margin-top: 10px; /* Adds some space between the image and the caption */
+    font-size: 0.9em; /* Slightly smaller font size for the caption */
+    color: #ffffff; /* Matches the font color with the rest of the page */
+    text-align: center;
+}
+
+
+
+
+
+
+
+.project-image-container {
+  max-width: 100%;
+}
+
+.project-image {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.project-header .inner {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  flex-wrap: wrap; /* this is key */
+}
+
+.project-info {
+  flex: 1 1 320px;
+  min-width: 0; /* prevents long text forcing overflow */
+}
+
+.project-image-container {
+  flex: 0 1 420px;
+  min-width: 0;
+}
+
+@media screen and (max-width: 736px) {
+  .project-header .inner {
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 736px) {
+
+  /* Make sure the container spans the full width and centers its contents */
+  .project-image-container {
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    margin: 0.75rem 0 0.5rem 0 !important; /* closer to text, less gap */
+    padding: 0 !important;
+    text-align: center !important;
+  }
+
+  /* Center the image itself and make it larger */
+  .project-image {
+    display: block !important;
+    margin: 0 auto !important;
+    width: min(96vw, 650px) !important;   /* bigger */
+    max-width: 100% !important;
+    height: auto !important;
+  }
+}
+@media screen and (max-width: 736px) {
+  .project-info p {
+    margin-bottom: 0.75rem !important;
+  }
+}
+
+@media screen and (max-width: 736px) {
+
+  /* tighten the space under the text */
+  .project-info p {
+    margin-bottom: 0.75rem !important;
+  }
+
+  /* tighten the space above the image */
+  .project-image-container {
+    margin-top: 0.5rem !important;
+  }
+}
+
+@media screen and (max-width: 736px) {
+  .project-header .inner {
+    padding-bottom: 0 !important;
+  }
+}
+
+@media screen and (max-width: 736px) {
+
+  .project-header .inner {
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 0.75rem;              /* controls spacing between text and image */
+  }
+
+  .project-header .project-info {
+    padding-right: 0;
+    margin-top: 0;             /* remove the -20px hack on mobile */
+  }
+
+  .project-header .project-info p {
+    margin-bottom: 0.75rem;    /* tighten text->image gap */
+  }
+
+  .project-header .project-image-container {
+    width: 100%;
+    max-width: none;
+    margin-left: 0;            /* kill desktop offset */
+    margin-top: 0;             /* ensure no extra gap */
+    display: flex;
+    justify-content: center;
+  }
+
+  .project-header .project-image {
+    width: min(96vw, 650px);   /* bigger on mobile */
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+}
+
+@media screen and (max-width: 736px) {
+  #wrapper > header {
+    background-repeat: no-repeat, no-repeat !important;
+    background-size: auto, cover !important;
+    background-position: center, center !important;
+  }
+}
+
+
+
+/* Desktop/tablet grid */
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1.25rem;
+}
+
+.image-grid-item {
+  display: flex;
+  justify-content: center;
+}
+
+.grid-image {
+  width: 100%;
+  max-width: 520px;   /* keeps them from getting huge on desktop */
+  height: auto;
+  display: block;
+  border-radius: 6px; /* optional, looks cleaner */
+}
+
+/* Mobile: stack 1 per row */
+@media screen and (max-width: 736px) {
+  .image-grid {
+    grid-template-columns: 1fr;
+    gap: 0.9rem;
+  }
+
+  .grid-image {
+    max-width: 92vw;  /* makes them large on mobile */
+  }
+
+  .grid-caption-h3 {
+    text-align: center;
+    margin-bottom: 0.75rem;
+  }
+}
+
+@media screen and (max-width: 736px) {
+  .image-grid {
+    grid-template-columns: 1fr;
+    width: 92%; /* make it feel bigger on mobile */
+  }
+}
+
+/* Responsive YouTube embeds */
+.video-embed {
+  position: relative;
+  width: 100%;
+  height: 0;
+  overflow: hidden;
+  border-radius: 12px; /* optional - remove if you want sharp corners */
+}
+
+.video-embed iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Vertical video (Shorts / Reels) */
+.video-embed--shorts {
+  padding-bottom: 177.78%; /* 9:16 aspect ratio */
+}
+@media screen and (min-width: 980px) {
+  .video-embed--shorts {
+    max-width: 420px;
+    margin: 0 auto;
+  }
+}
+

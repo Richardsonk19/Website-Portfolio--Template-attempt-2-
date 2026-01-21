@@ -3383,6 +3383,13 @@ input, select, textarea {
 
 	#banner {
 		padding: 10em 0 4.75em 0 ;
+		margin-bottom: -6.5em;
+		background-color: #2e3141;
+		background-image: linear-gradient(to top, rgba(46, 49, 65, 0.8), rgba(46, 49, 65, 0.8)), url("../../images/bg.jpg");
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: center 50%;
+		
 	}
 
 		#banner .inner {
@@ -3469,13 +3476,6 @@ input, select, textarea {
 
 			#banner {
 				padding: 7em 0 8.25em 0 ;
-				background-color: #2e3141;
-				background-image: linear-gradient(to top, rgba(46, 49, 65, 0.8), rgba(46, 49, 65, 0.8)), url("../../images/bg.jpg");
-				background-size: auto,
- cover;
-				background-position: center,
- center;
-				margin-bottom: -6.5em;
 			}
 
 		}
@@ -3549,6 +3549,9 @@ input, select, textarea {
 			-ms-filter: blur(2px);
 			filter: blur(2px);
 		}
+
+
+
 
 /* Wrapper */
 
@@ -4009,6 +4012,8 @@ input, select, textarea {
 
 		}
 
+
+		
 /* Footer */
 
 	#footer .inner {
@@ -4166,7 +4171,11 @@ input, select, textarea {
 	left: 0;
 	width: 100%;
 	height: 100%;
-	background-color: #324072; /* Change to your preferred background color */
+	background-color: #2e3141;
+	background-image: linear-gradient(to top, rgba(46, 49, 65, 0.8), rgba(46, 49, 65, 0.8)), url("../../images/bg.jpg");
+	background-size: cover;
+	background-position: center 75%;
+	background-repeat: no-repeat;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -4201,12 +4210,15 @@ input, select, textarea {
   }
   /* Center content within the overlay */
 #overlay-content {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center; /* Center content vertically */
-  height: 100%;
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  max-width: 90vw;
+  margin: 0 auto;
+  text-align: center;
+}
 
   #overlay-content > * {
 	margin: 10px 0; /* Equal spacing above and below each element */
@@ -4229,6 +4241,9 @@ input, select, textarea {
 	opacity: 0; /* Start invisible */
 	animation: fadeInName 2s forwards;
 	animation-delay: 1s; /* Delay to sync with line animations */
+	width: 100%;
+  	text-align: center;
+  	margin: 0 auto;
   }
   
   /* Animation to fade in the name */
@@ -4268,10 +4283,7 @@ input, select, textarea {
 	}
   }
   
-  /* Ensure lines match the width of the name */
-  #overlay-content {
-	width: max-content;
-  }
+
   
   /* Hide the overlay after animations */
   body.loaded #overlay {
@@ -4281,4 +4293,46 @@ input, select, textarea {
 	transition-delay: 2s; /* Delay to allow animations to finish */
   }
   
-  
+  @media screen and (max-width: 736px) {
+  #overlay-name {
+    font-size: 2.2em;
+  }
+
+  .line {
+  width: 0;
+  height: 5px;
+  background-color: #ffffff;
+  overflow: hidden;
+  margin: 0;
+  max-width: 90vw;
+}
+}
+ 
+/* Video thumbnail in projects grid */
+.project-thumb-video {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+
+
+/* Banner tagline - clean (no box) */
+#banner .inner .tagline {
+  margin-top: 1.25em;         /* adjust spacing under the line */
+  font-size: 1.05em;          /* slightly bigger */
+  font-weight: 600;           /* bolder */
+  opacity: 0.98;
+  letter-spacing: 0.06em;     /* less spread out */
+  text-transform: uppercase;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.45); /* helps readability */
+}
+
+#banner .inner .tagline .sep {
+  font-size: 1.35em;     /* makes the | taller */
+  font-weight: 800;      /* makes it stand out */
+  opacity: 0.95;
+  padding: 0 0.35em;     /* adds breathing room */
+  display: inline-block; /* ensures sizing applies cleanly */
+  transform: translateY(-0.02em); /* tiny alignment tweak */
+}
